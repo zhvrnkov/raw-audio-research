@@ -1,11 +1,14 @@
 fps = 8000
-bpm = 240
-bps = bpm / 60
-fp_beat = fps / bps
-
+bpm = 420
 size = 2/4
-fp_bar = fp_beat * 4
-note_frame_duration = int(fp_bar * size)
+
+def note_duration() -> int:
+  bps = bpm / 60
+  frames_per_beat = fps / bps
+  frames_per_bar = frames_per_beat * 4
+  return int(frames_per_bar * size)
+
+note_frame_duration = note_duration()
 
 max_volume = 0xff
 min_volume = 0x80
