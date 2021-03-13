@@ -1,15 +1,18 @@
-frames_per_second = 8000
-bpm = 120
+fps = 8000
+bpm = 240
+bps = bpm / 60
+fp_beat = fps / bps
+
+size = 2/4
+fp_bar = fp_beat * 4
+note_frame_duration = int(fp_bar * size)
 
 max_volume = 0xff
 min_volume = 0x80
 
-bar_size = 4
-note_frame_duration = int(frames_per_second / bar_size)
-
 def note(freq: float) -> list:
   output = [0] * note_frame_duration
-  step = int(frames_per_second / freq)
+  step = int(fps / freq)
   for frame in range(0, note_frame_duration):
     if frame % step:
       output[frame] = max_volume
