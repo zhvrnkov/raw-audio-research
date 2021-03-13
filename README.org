@@ -1,0 +1,17 @@
+* play raw
+1. get m4a file
+2. ffmpeg -i <M4A_FILE> -ar 8000 -ac 1 -c:a pcm_u8 -f u8 music.raw
+3. cat music.raw | padsp tee /dev/audio > /dev/null
+[[https://unix.stackexchange.com/questions/13732/generating-random-noise-for-fun-in-dev-snd][about 3rd]]
+[[https://unix.stackexchange.com/questions/17828/output-sound-by-writing-to-dev-dsp][about 2nd]]
+
+** questions
+- what is m4a file
+- is music.raw is just sequence of samples?
+- can it be done with more basic tools? with not pulseaudio (as wrapper around ALSA), but directly with ALSA?
+
+- m4a is just container format. Nothing interesting
+- yes
+- sure you can do it, but does it worth it for now?
+
+
