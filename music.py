@@ -25,15 +25,26 @@ def note(freq: float) -> list:
   
   return output
  
-def sin_wave(duration_in_frames: int, step: float) -> list:
+def generate(duration_in_frames: int, step: float, func) -> list:
   output = [0] * duration_in_frames
   value = 0
   for index in range(0, duration_in_frames):
-    sin_value = 0.5 + (sin(value) * 0.5)
-    output[index] = int(sin_value * max_volume)
+    sample_values = func(value)
+    output[index] = func(value)
     value += step
   return output
-  
+
+def sin_wave(duration_in_frames: int, step: float) -> list:
+  return generate(duration_in_frames, step, lambda x: int((0.5 + (sin(x) * 0.5)) * max_volume))
+
+def weow_weow(duration_in_frames: int, step: float = 0.01) -> list:
+  return generate(
+    duration_in_frames, 
+    pi / 12, 
+    lambda x: 
+      (int(x) % 2) * int((0.5 + (sin(x * step) * 0.5)) * max_volume)
+  )
+ 
 def write(name: str, notes: list):
   content = bytearray(notes)
   file = open(name, "wb")
