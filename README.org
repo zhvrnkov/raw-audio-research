@@ -1,3 +1,12 @@
+* description
+The main point of this research were desire to play raw sound via writing data directly to device (/dev/audio).
+
+After small research some links on stackoverflow were found and I start to digging into raw audio data:
+- write my raw audio data generator ([[file:music.py][music.py]]) which can play notes and some noisy sin waves
+- start writing my own sequencer ([[file:sequencer.py][sequencer.py]]). The main purpose of this sequencer were research how samples are comdining
+
+The main mind-blowing fact is that audio is just frequency and volume -- there is nothing also in general about it.
+
 * play raw
 1. get m4a file
 2. ffmpeg -i <M4A_FILE> -ar 8000 -ac 1 -c:a pcm_u8 -f u8 music.raw
@@ -18,4 +27,5 @@
 - how to play multiple notes simualteneously? What's the formula for sample value then? Doesn't looks like that the formula is just average value
 - sin wave sound
 
-[[https://stackoverflow.com/questions/19847601/how-do-i-combine-digital-audio][combining audio]]
+- [[https://stackoverflow.com/questions/19847601/how-do-i-combine-digital-audio][combining audio]]
+- sin wave is brilliant. really like implementing it. especially weow-weow sound
