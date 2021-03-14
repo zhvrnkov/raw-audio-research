@@ -37,12 +37,16 @@ def generate(duration_in_frames: int, step: float, func) -> list:
 def sin_wave(duration_in_frames: int, step: float) -> list:
   return generate(duration_in_frames, step, lambda x: int((0.5 + (sin(x) * 0.5)) * max_volume))
 
-def weow_weow(duration_in_frames: int, step: float = 0.01) -> list:
+def weow_weow(
+  duration_in_frames: int,
+  freq_step: int = 2,
+  volume_step: float = 0.01
+) -> list:
   return generate(
     duration_in_frames, 
-    pi / 12, 
+    pi / 12,
     lambda x: 
-      (int(x) % 2) * int((0.5 + (sin(x * step) * 0.5)) * max_volume)
+      (not bool(int(x) % freq_step)) * int((0.5 + (sin(x * volume_step) * 0.5)) * max_volume)
   )
  
 def write(name: str, notes: list):
