@@ -18,3 +18,4 @@
 - how to play multiple notes simualteneously? What's the formula for sample value then? Doesn't looks like that the formula is just average value
 - sin wave sound
 
+[[https://stackoverflow.com/questions/19847601/how-do-i-combine-digital-audio][combining audio]]
