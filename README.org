@@ -5,7 +5,7 @@
 [[https://unix.stackexchange.com/questions/13732/generating-random-noise-for-fun-in-dev-snd][about 3rd]]
 [[https://unix.stackexchange.com/questions/17828/output-sound-by-writing-to-dev-dsp][about 2nd]]
 
-** questions
+** questions v1
 - what is m4a file
 - is music.raw is just sequence of samples?
 - can it be done with more basic tools? with not pulseaudio (as wrapper around ALSA), but directly with ALSA?
@@ -14,4 +14,7 @@
 - yes
 - sure you can do it, but does it worth it for now?
 
+** question v2
+- how to play multiple notes simualteneously? What's the formula for sample value then? Doesn't looks like that the formula is just average value
+- sin wave sound
 

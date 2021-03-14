@@ -1,3 +1,5 @@
+from math import *
+
 fps = 8000
 bpm = 240
 size = 1/4
@@ -23,6 +25,15 @@ def note(freq: float) -> list:
   
   return output
  
+def sin_wave(duration_in_frames: int, step: float) -> list:
+  output = [0] * duration_in_frames
+  value = 0
+  for index in range(0, duration_in_frames):
+    sin_value = 0.5 + (sin(value) * 0.5)
+    output[index] = int(sin_value * max_volume)
+    value += step
+  return output
+  
 def write(name: str, notes: list):
   content = bytearray(notes)
   file = open(name, "wb")
